@@ -50,4 +50,20 @@ public class HomeController {
 
         return "station";
     }
+
+    @GetMapping("/klaipeda")
+    public String getKlaipeda(Model model) {
+
+        String url = "https://api.meteo.lt/v1/stations/klaipedos-ams/observations/latest";
+
+        WeatherData weatherData = service.getWeather(url);
+
+        model.addAttribute("xData", weatherData.getHours());
+        model.addAttribute("yData", weatherData.getTemperatures());
+        model.addAttribute("tData", weatherData.getFeelsLike());
+        model.addAttribute("wData", weatherData.getWindSpeed());
+        model.addAttribute("cData", weatherData.getClouds());
+
+        return "station";
+    }
 }
