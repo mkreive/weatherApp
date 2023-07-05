@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Cloudy</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <script src="http://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+    <script th:inline="javascript">
+		let xData = /*[[${xData}]]*/ [];
+	    let yData = /*[[${yData}]]*/ [];
+
+	    let ctx = document.getElementById('myChart').getContext('2d');
+	    let myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: xData,
+                datasets: [{
+                    label: 'Weather Graphics',
+                    data: yData,
+                    backgroundColor: 'rgba(159, 194, 204, 0.7)',
+                    borderColor: 'rgba(27, 82, 153, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+    });
+  </script>
+  </div>
+</body>
+
+</html>
