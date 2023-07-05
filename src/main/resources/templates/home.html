@@ -1,66 +1,28 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Cloudy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>CLOUDY</title>
   <link rel="stylesheet" th:href="@{/css/style.css}" />
-  <script src="http://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
+<div class="navigation">
+  <a class="nav" href="/home">Home</a>
+  <a class="nav" href="/stations">Stations</a>
+  <label for="search" class="input--search">
+    <input id="search" name="search"  type="text" placeholder="search..">
+  </label>
+</div>
   <div class="container">
-    <canvas id="myChart"></canvas>
-    <script th:inline="javascript">
-		let xData = /*[[${xData}]]*/ [];
-	    let yData = /*[[${yData}]]*/ [];
-	    let tData = /*[[${tData}]]*/ [];
-	    let wData = /*[[${wData}]]*/ [];
-	    let cData = /*[[${cData}]]*/ [];
+    <div class="wrapper">
+      <button class="button"><a th:href="@{/vilnius}">Vilnius Station</a></button>
+      <button class="button"><a th:href="@{/kaunas}">Kaunas Station</a></button>
+      <button class="button"><a th:href="@{/klaipeda}">Klaipeda Station</a></button>
+    </div>
 
-	    let ctx = document.getElementById('myChart').getContext('2d');
-	    let myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: xData,
-                datasets: [{
-                    label: 'Temperature',
-                    data: yData,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Feels Like',
-                    data: tData,
-                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                    borderColor: 'rgba(153, 102, 255, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Wind',
-                    data: wData,
-                    backgroundColor: 'rgba(97, 112, 125, 0.5)',
-                    borderColor: 'rgba(97, 112, 125, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Clouds',
-                    data: cData,
-                    backgroundColor: 'rgba(232, 93, 117, 0.2)',
-                    borderColor: 'rgba(232, 93, 117, 1)',
-                    borderWidth: 1
-                }
-
-                ]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
   </div>
 </body>
 

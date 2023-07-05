@@ -15,6 +15,7 @@ body {
     box-sizing: border-box;
     font-size: 62.5%;
     line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
 }
 
 img,
@@ -43,5 +44,60 @@ h6 {
     overflow-wrap: break-word;
 }
 
+.navigation {
+width: 100%;
+height: auto;
+background-color: black;
+display: flex;
+padding: 1.2rem 5rem;
+align-items: center;
+gap: 1.8rem;
+}
+
+.nav {
+font-weight: 600;
+font-size: 1rem;
+cursor: pointer;
+}
+
+.nav:hover {
+color: #08D9D6;
+}
+
 .container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #EAEAEA;
+  padding: 3rem 5rem;
+}
+
+.wrapper {
+display: flex;
+justify-content: center;
+gap: 2rem;
+}
+
+.button {
+border-radius: 0.3rem;
+border: none;
+background-color: #FF2E63;
+color: #fff;
+font-weight: 600;
+padding: 0.3rem 1rem;
+cursor: pointer;
+max-width: max-content;
+}
+
+.button:hover {
+background-color: #08D9D6;
+color: #252A34;
+}
+
+a {
+text-decoration: none;
+color: #fff;
+font-size: 0.8rem;
 }
