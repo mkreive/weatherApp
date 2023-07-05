@@ -1,9 +1,13 @@
 package lt.javau5.weatherApp.entity;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Station {
 
     private String code;
     private String name;
+
+    @Autowired
     private Coordinates coordinates;
 
     public Station() {

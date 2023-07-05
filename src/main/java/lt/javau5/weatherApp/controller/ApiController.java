@@ -1,23 +1,25 @@
 package lt.javau5.weatherApp.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import lt.javau5.weatherApp.entity.WeatherData;
+import lt.javau5.weatherApp.service.MeteoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
-import java.util.List;
-
-@Controller
+@RestController
+@RequestMapping("/api")
 public class ApiController {
 
-    @GetMapping("/home")
-    public String getHome(Model model) {
-        List<Integer> xData = Arrays.asList(1, 2, 3, 4, 5);
-        List<Integer> yData = Arrays.asList(10, 20, 15, 30, 25);
+    @Autowired
+    MeteoService service;
 
-        model.addAttribute("xData", xData);
-        model.addAttribute("yData", yData);
+    @GetMapping("/vilnius")
+    public WeatherData getVilniausData() {
 
-        return "home";
+        String url = "https://api.meteo.lt/v1/stations/vilniaus-ams/observations/2023-07-04";
+
+        return service.getWeather(url);
+
     }
 }
